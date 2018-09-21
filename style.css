@@ -1,1 +1,13 @@
 * { padding: 10px; }
+
+.DRAW-AREA { height: 500px; width: 500px; border: 2px solid black; text-align: center; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+canvas {
+  border: 1px dotted silver;
+}
+#drawCanvas:hover, #drawCanvas:active {
+  cursor: url(''), 
+  pointer;
+}
