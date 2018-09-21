@@ -23,7 +23,7 @@
     <p>Online Pictionary!</p>
     <p>coming soon</p>
 
-    <canvas id="drawCanvas" width="600" height="480">Canvas not working? :-/</canvas>
+    <canvas id="drawCanvas" width="800" height="600">Canvas not working? :-/</canvas>
 
 </body>
 </html>
@@ -42,10 +42,12 @@
     ctx.lineWidth = '3';
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
+    // line width ctx.lineWidth = 10;
 
-    var color = 'yellowgreen';
+    var color = 'black';
 
     canvas.addEventListener('mousedown', startDraw, false);
+    canvas.addEventListener('mousedown', setSinglePixel, false);
     canvas.addEventListener('mousemove', draw, false);
     canvas.addEventListener('mouseup', endDraw, false);
 
@@ -76,6 +78,7 @@
 
         plots.push({ x: x, y: y });
         drawOnCanvas(color, plots);
+
     }
 
     function startDraw(e) {
@@ -86,5 +89,19 @@
         isActive = false;
         plots = [];
     }
+
+    function setSinglePixel(e) {
+
+        var x = e.offsetX || e.layerX - canvas.offsetLeft;
+        var y = e.offsetY || e.layerY - canvas.offsetTop;
+
+        isActive = true;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + 1, y + 1);
+        ctx.lineTo(x + 0, y + 0);
+        ctx.stroke();
+    }
+
 
 </script>
