@@ -11,3 +11,5 @@ canvas {
   cursor: url(''), 
   pointer;
 }
+
+#drawCanvas { background: #fcfcfc; }

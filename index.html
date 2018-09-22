@@ -20,12 +20,25 @@
 
     <p class="TEXT-Title">Markers!</p>
     <hr>
-    <p>Online Pictionary!</p>
-    <p>coming soon</p>
+    <p>Online Pictionary!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coming soon</p>
 
-    <canvas id="drawCanvas" width="800" height="600">Canvas not working? :-/</canvas>
+    <canvas id="drawCanvas" width="800" height="600"></canvas><br>
+
+    <select id="colorPalette" onclick="changeColor()">
+        <option value="black">black</option>
+        <option value="red">red</option>
+        <option value="orange">orange</option>
+        <option value="yellow">yellow</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="purple">purple</option>
+        <option value="white">white</option>
+    </select>
+
+    <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
 
 </body>
+
 </html>
 
 <script>
@@ -33,33 +46,34 @@
     /* Pure canvas by PubNub */
 
     var channel = 'draw';
-
-    /* Draw on canvas */
-
     var canvas = document.getElementById('drawCanvas');
     var ctx = canvas.getContext('2d');
 
     ctx.lineWidth = '3';
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    // line width ctx.lineWidth = 10;
-
-    var color = 'black';
+    var color = 'black'; // default color
 
     canvas.addEventListener('mousedown', startDraw, false);
-    canvas.addEventListener('mousedown', setSinglePixel, false);
     canvas.addEventListener('mousemove', draw, false);
     canvas.addEventListener('mouseup', endDraw, false);
+    document.getElementById("drawCanvas").addEventListener("click", setSinglePixel);
 
     function drawOnCanvas(color, plots) {
         ctx.strokeStyle = color;
         ctx.beginPath();
-        ctx.moveTo(plots[0].x, plots[0].y);
-
         for (var i = 1; i < plots.length; i++) {
             ctx.lineTo(plots[i].x, plots[i].y);
         }
         ctx.stroke();
+    }
+
+    function setSinglePixel(e) {                 
+        var x = e.offsetX || e.layerX - canvas.offsetLeft;
+        var y = e.offsetY || e.layerY - canvas.offsetTop;
+        ctx.beginPath();
+        ctx.lineTo(x, y);
+        ctx.stroke();       
     }
 
     function drawFromStream(message) {
@@ -72,36 +86,72 @@
 
     function draw(e) {
         if (!isActive) return;
-
         var x = e.offsetX || e.layerX - canvas.offsetLeft;
         var y = e.offsetY || e.layerY - canvas.offsetTop;
-
         plots.push({ x: x, y: y });
         drawOnCanvas(color, plots);
-
     }
 
-    function startDraw(e) {
-        isActive = true;
+    function startDraw(e) { isActive = true; }
+    function endDraw(e) { isActive = false; plots = []; }
+
+    function changeColor() {
+        var colorValue = document.getElementById("colorPalette").value;
+        ctx.lineWidth = '3';
+
+        switch(colorValue) {
+
+            case "red":
+                color = 'red';
+                break;
+
+            case "orange":
+                color = 'orange';
+                break;
+
+            case "yellow":
+                color = 'yellow';
+                break;
+
+            case "green":
+                color = 'green';
+                break;
+
+            case "blue":
+                color = 'blue';
+                break;
+
+            case "purple":
+                color = 'purple';
+                break;
+
+            case "black":
+                color = 'black';
+                break;
+
+            case "white":
+                color = 'white';
+                break;
+
+            default:
+                color = 'black';
+                break;
+
+        }
     }
 
-    function endDraw(e) {
-        isActive = false;
-        plots = [];
+    function runEraser() {
+        color = '#fcfcfc';
+        ctx.lineWidth = '20';
     }
 
-    function setSinglePixel(e) {
+/* straight lines
 
-        var x = e.offsetX || e.layerX - canvas.offsetLeft;
-        var y = e.offsetY || e.layerY - canvas.offsetTop;
-
-        isActive = true;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + 1, y + 1);
-        ctx.lineTo(x + 0, y + 0);
-        ctx.stroke();
-    }
-
+                
+                //ctx.beginPath();
+                //ctx.moveTo(x, y);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+*/
 
 </script>
