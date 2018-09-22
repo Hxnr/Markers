@@ -14,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+    <link href="cpm/color-picker.min.css" rel="stylesheet">
 </head>
-
 <body>
 
     <p class="TEXT-Title">Markers!</p>
@@ -24,23 +24,16 @@
 
     <canvas id="drawCanvas" width="800" height="600"></canvas><br>
 
-    <select id="colorPalette" onclick="changeColor()">
-        <option value="black">black</option>
-        <option value="red">red</option>
-        <option value="orange">orange</option>
-        <option value="yellow">yellow</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
-        <option value="purple">purple</option>
-        <option value="white">white</option>
-    </select>
-
     <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
+    <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
+    <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
+
+    <p><input id="colorPicker" type="text" value="#000"></p>
 
 </body>
-
 </html>
 
+<script src="cpm/color-picker.min.js"></script>
 <script>
 
     /* Pure canvas by PubNub */
@@ -89,61 +82,37 @@
         var x = e.offsetX || e.layerX - canvas.offsetLeft;
         var y = e.offsetY || e.layerY - canvas.offsetTop;
         plots.push({ x: x, y: y });
+        color = document.getElementById("colorPicker").value; // get the color
         drawOnCanvas(color, plots);
     }
 
     function startDraw(e) { isActive = true; }
     function endDraw(e) { isActive = false; plots = []; }
 
-    function changeColor() {
-        var colorValue = document.getElementById("colorPalette").value;
-        ctx.lineWidth = '3';
-
-        switch(colorValue) {
-
-            case "red":
-                color = 'red';
-                break;
-
-            case "orange":
-                color = 'orange';
-                break;
-
-            case "yellow":
-                color = 'yellow';
-                break;
-
-            case "green":
-                color = 'green';
-                break;
-
-            case "blue":
-                color = 'blue';
-                break;
-
-            case "purple":
-                color = 'purple';
-                break;
-
-            case "black":
-                color = 'black';
-                break;
-
-            case "white":
-                color = 'white';
-                break;
-
-            default:
-                color = 'black';
-                break;
-
-        }
-    }
-
     function runEraser() {
         color = '#fcfcfc';
         ctx.lineWidth = '20';
     }
+
+    function runBackground() {
+        ctx.beginPath();
+        ctx.rect(0, 0, 1000, 1000);
+        ctx.fillStyle = color;
+        ctx.fill();
+    }
+
+    function resetDrawing() {
+        ctx.beginPath();
+        ctx.rect(0, 0, 1000, 1000);
+        ctx.fillStyle = '#fcfcfc';
+        ctx.fill();
+    }
+
+    var picker = new CP(document.querySelector('input[type="text"]'));
+    picker.on("change", function (color) {
+
+        this.source.value = '#' + color;
+    });    
 
 /* straight lines
 
@@ -155,3 +124,4 @@
 */
 
 </script>
+<script src="cpm/color-picker.min.js"></script>
