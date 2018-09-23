@@ -51,7 +51,7 @@
     canvas.addEventListener('mousemove', draw, false);
     canvas.addEventListener('mouseup', endDraw, false); // Releasing the mouse
     canvas.addEventListener('mouseout', endDraw, false); // No longer hovering the canvas
-    document.getElementById("drawCanvas").addEventListener("click", setSinglePixel);
+    canvas.addEventListener("click", setSinglePixel);
 
     function drawOnCanvas(color, plots) {
         ctx.strokeStyle = color;
@@ -83,9 +83,11 @@
         var x = e.offsetX || e.layerX - canvas.offsetLeft;
         var y = e.offsetY || e.layerY - canvas.offsetTop;
         plots.push({ x: x, y: y });
-        color = document.getElementById("colorPicker").value; // get the color
+        runColorCheck();
         drawOnCanvas(color, plots);
     }
+
+    function runColorCheck() { return color = document.getElementById("colorPicker").value; } // get the color 
 
     function startDraw(e) { isActive = true; }
     function endDraw(e) { isActive = false; plots = []; }
@@ -98,6 +100,7 @@
     }
 
     function runBackground() {
+        runColorCheck();
         ctx.beginPath();
         ctx.rect(0, 0, 1000, 1000);
         ctx.fillStyle = color;
