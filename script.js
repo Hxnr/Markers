@@ -1,3 +1,5 @@
+    console.log("Markers!")
+    
     /* Pure canvas by PubNub */
 
     var channel = 'draw'; // Setting up canvas
@@ -7,11 +9,13 @@
     var lineID = document.getElementById("canvasLineTool"); // Line tool
     var lineStatus = false;
 
+    var eraserStatus = false;
+
     // Default values
     ctx.lineWidth = '3'; // Line width
     ctx.lineCap = 'round'; // Line style
     ctx.lineJoin = 'round'; // Line style
-    var color = 'black'; // Default color
+    var color = '#000000'; // Default color
     var mouseDown = false; // Set mouse to be up by default
 
     var brushInput = document.getElementById("brushSizeInput").value; // Brush size
@@ -20,6 +24,7 @@
 
     var isActive = false; // Drawing status
     var plots = []; // Areas to draw
+    var colorList = []; // Store previous color to reset to after erasing
 
     canvas.addEventListener('mousedown', startDraw, false); // Begin drawing
     canvas.addEventListener('mousemove', draw, false); // Plot points
@@ -53,22 +58,6 @@
         }
     }
 
-    function lineToolStatus(e) {
-        if (!lineStatus) { lineStatus = true; } 
-        else if (lineStatus) { lineStatus = false; }
-    }
-
-    function runLineTool(e) {   
-        if (lineStatus) {     
-            runColorCheck();
-            ctx.strokeStyle = color;
-            var x = e.offsetX || e.layerX - canvas.offsetLeft;
-            var y = e.offsetY || e.layerY - canvas.offsetTop;
-            ctx.lineTo(x, y);
-            ctx.stroke();
-        }
-    }
-
     function drawFromStream(message) {
         if (!message || message.plots.length < 1) return;
         drawOnCanvas(message.color, message.plots);
@@ -89,11 +78,38 @@
 
     function endDraw(e) { isActive = false; plots = []; }
     function disablePixel(e) { mouseDown = false; }
-    
+
     function runEraser() {
-        color = '#fcfcfc';
-        document.getElementById("colorPicker").value = '#fcfcfc';
-        runColorCheck();
+        var oldcolor = color;
+
+        colorList.push(oldcolor);
+        if (!eraserStatus) {
+            color = '#fcfcfc';
+            document.getElementById("colorPicker").value = '#fcfcfc';
+            runColorCheck();
+            $('#canvasEraser').css('font-weight', 'bold');
+            eraserStatus = true;
+        } else {
+            $('#canvasEraser').css('font-weight', 'normal'); 
+            eraserStatus = false; 
+            document.getElementById("colorPicker").value = (colorList.slice(-2)[0]);
+         }
+    }
+
+    function lineToolStatus(e) {
+        if (!lineStatus) { lineStatus = true; $('#canvasLineTool').css('font-weight', 'bold'); }
+        else if (lineStatus) { lineStatus = false; $('#canvasLineTool').css('font-weight', 'normal'); }
+    }
+
+    function runLineTool(e) {
+        if (lineStatus) {
+            runColorCheck();
+            ctx.strokeStyle = color;
+            var x = e.offsetX || e.layerX - canvas.offsetLeft;
+            var y = e.offsetY || e.layerY - canvas.offsetTop;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
     }
 
     function runBackground() {
@@ -121,4 +137,6 @@
     var picker = new CP(document.querySelector('input[type="text"]'));
     picker.on("change", function (color) {
         this.source.value = '#' + color;
+        eraserStatus = false; 
+        $('#canvasEraser').css('font-weight', 'normal');
     });    
