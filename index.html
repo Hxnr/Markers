@@ -18,15 +18,16 @@
 </head>
 <body>
 
-    <p class="TEXT-Title">Markers!</p>
-    <hr>
-    <p>Online Pictionary!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coming soon</p>
+    <p class="TEXT-Title">Markers!</p><hr>
 
     <canvas id="drawCanvas" width="800" height="600"></canvas><br>
 
     <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
     <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
     <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
+    <a href="#" id="canvasLineTool">line tool</a>
+
+    <input onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
 
     <p><input id="colorPicker" type="text" value="#000"></p>
 
@@ -34,99 +35,4 @@
 </html>
 
 <script src="cpm/color-picker.min.js"></script>
-<script>
-
-    /* Pure canvas by PubNub */
-
-    var channel = 'draw';
-    var canvas = document.getElementById('drawCanvas');
-    var ctx = canvas.getContext('2d');
-
-    ctx.lineWidth = '3';
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    var color = 'black'; // default color
-
-    canvas.addEventListener('mousedown', startDraw, false);
-    canvas.addEventListener('mousemove', draw, false);
-    canvas.addEventListener('mouseup', endDraw, false); // Releasing the mouse
-    canvas.addEventListener('mouseout', endDraw, false); // No longer hovering the canvas
-    canvas.addEventListener("click", setSinglePixel);
-
-    function drawOnCanvas(color, plots) {
-        ctx.strokeStyle = color;
-        ctx.beginPath();
-        for (var i = 1; i < plots.length; i++) {
-            ctx.lineTo(plots[i].x, plots[i].y);
-        }
-        ctx.stroke();
-    }
-
-    function setSinglePixel(e) {                 
-        var x = e.offsetX || e.layerX - canvas.offsetLeft;
-        var y = e.offsetY || e.layerY - canvas.offsetTop;
-        ctx.beginPath();
-        ctx.lineTo(x, y);
-        ctx.stroke();       
-    }
-
-    function drawFromStream(message) {
-        if (!message || message.plots.length < 1) return;
-        drawOnCanvas(message.color, message.plots);
-    }
-
-    var isActive = false;
-    var plots = [];
-
-    function draw(e) {
-        if (!isActive) return;
-        var x = e.offsetX || e.layerX - canvas.offsetLeft;
-        var y = e.offsetY || e.layerY - canvas.offsetTop;
-        plots.push({ x: x, y: y });
-        runColorCheck();
-        drawOnCanvas(color, plots);
-    }
-
-    function runColorCheck() { return color = document.getElementById("colorPicker").value; } // get the color 
-
-    function startDraw(e) { isActive = true; }
-    function endDraw(e) { isActive = false; plots = []; }
-
-    function runEraser() {
-        color = '#fcfcfc';
-        ctx.lineWidth = '20';
-        document.getElementById("colorPicker").value = '#fcfcfc';
-        olor = document.getElementById("colorPicker").value; 
-    }
-
-    function runBackground() {
-        runColorCheck();
-        ctx.beginPath();
-        ctx.rect(0, 0, 1000, 1000);
-        ctx.fillStyle = color;
-        ctx.fill();
-    }
-
-    function resetDrawing() {
-        ctx.beginPath();
-        ctx.rect(0, 0, 1000, 1000);
-        ctx.fillStyle = '#fcfcfc';
-        ctx.fill();
-    }
-
-    var picker = new CP(document.querySelector('input[type="text"]'));
-    picker.on("change", function (color) {
-        this.source.value = '#' + color;
-    });    
-
-/* straight lines
-
-                
-                //ctx.beginPath();
-                //ctx.moveTo(x, y);
-                ctx.lineTo(x, y);
-                ctx.stroke();
-*/
-
-</script>
-<script src="cpm/color-picker.min.js"></script>
+<script src="script.js"></script>

@@ -1,8 +1,4 @@
-* { padding: 10px; }
-
-.DRAW-AREA { height: 500px; width: 500px; border: 2px solid black; text-align: center; }
-
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* { padding: 10px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 canvas {
   border: 1px dotted silver;
@@ -13,3 +9,5 @@ canvas {
 }
 
 #drawCanvas { background: #fcfcfc; }
+
+#brushSizeDisplay { display: inline-block; }
