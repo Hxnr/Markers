@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans|Advent+Pro:500'>
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <!--  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
@@ -49,7 +49,8 @@
 
     canvas.addEventListener('mousedown', startDraw, false);
     canvas.addEventListener('mousemove', draw, false);
-    canvas.addEventListener('mouseup', endDraw, false);
+    canvas.addEventListener('mouseup', endDraw, false); // Releasing the mouse
+    canvas.addEventListener('mouseout', endDraw, false); // No longer hovering the canvas
     document.getElementById("drawCanvas").addEventListener("click", setSinglePixel);
 
     function drawOnCanvas(color, plots) {
@@ -92,6 +93,8 @@
     function runEraser() {
         color = '#fcfcfc';
         ctx.lineWidth = '20';
+        document.getElementById("colorPicker").value = '#fcfcfc';
+        olor = document.getElementById("colorPicker").value; 
     }
 
     function runBackground() {
@@ -110,7 +113,6 @@
 
     var picker = new CP(document.querySelector('input[type="text"]'));
     picker.on("change", function (color) {
-
         this.source.value = '#' + color;
     });    
 
