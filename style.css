@@ -1,13 +1,20 @@
 * { padding: 10px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-canvas {
-  border: 1px dotted silver;
-}
-#drawCanvas:hover, #drawCanvas:active {
-  cursor: url(''), 
-  pointer;
-}
+canvas { border: 1px dotted silver; }
+#drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
+.TEXT-Title { text-align: center; }
 
 #drawCanvas { background: #fcfcfc; }
-
 #brushSizeDisplay { display: inline-block; }
+#INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; }
+
+.WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; margin: 5px; }
+.WIDGET-Chat { width: 400px; position: relative;}
+.WIDGET-Canvas { margin: 0px 50px; }
+.WIDGET-Players { width: 400px; }
+.MASTER-WIDGET { text-align: center; position: relative; width: 100% !important; }
+
+.brushSizeDiv { display: inline-block; }
+.slider { vertical-align: middle; margin: 5px; width: 100px; height: 25px; outline: none; border-radius: 5px; }
+.slider::-webkit-slider-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; border-radius: 15px; }
+.slider::-moz-range-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; }

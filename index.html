@@ -20,16 +20,31 @@
 
     <p class="TEXT-Title">Markers!</p><hr>
 
-    <canvas id="drawCanvas" width="800" height="600"></canvas><br>
+    <div class="MASTER-WIDGET">
+        <div class="WIDGET-Players">
+            <p>Players go here</p>
+        </div>
 
-    <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
-    <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
-    <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
-    <a href="#" id="canvasLineTool">line tool</a>
+        <div class="WIDGET-Canvas">
+            <canvas id="drawCanvas" width="800" height="550"></canvas><br>
 
-    <input onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
+            <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
+            <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
+            <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
+            <a href="#" id="canvasLineTool">line tool</a>
 
-    <p><input id="colorPicker" type="text" value="#000"></p>
+            <div class="brushSizeDiv">
+            <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
+</div>
+            <p><input id="colorPicker" type="text" value="#000"></p>
+        </div>
+
+        <div class="WIDGET-Chat">
+            <p>Chat goes here</p><p>Chat goes here</p>
+            <p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p>
+            <input id="INPUT-Guess" type="text" placeholder="enter a guess">
+        </div>
+    </div>
 
 </body>
 </html>
