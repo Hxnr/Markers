@@ -2,9 +2,9 @@
 
 canvas { border: 1px dotted silver; }
 #drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
-.TEXT-Title { text-align: center; }
+.TEXT-Title { text-align: center; font-size: 30px; margin: 0px; padding: 0px; }
 
-#drawCanvas { background: #fcfcfc; }
+#drawCanvas { background: #fcfcfc; border: 1px solid black; }
 #brushSizeDisplay { display: inline-block; }
 #INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; }
 
@@ -12,9 +12,18 @@ canvas { border: 1px dotted silver; }
 .WIDGET-Chat { width: 400px; position: relative;}
 .WIDGET-Canvas { margin: 0px 50px; }
 .WIDGET-Players { width: 400px; }
-.MASTER-WIDGET { text-align: center; position: relative; width: 100% !important; }
+.MASTER-GAME-WIDGET { text-align: center; position: relative; width: 100% !important; display: none; }
 
 .brushSizeDiv { display: inline-block; }
 .slider { vertical-align: middle; margin: 5px; width: 100px; height: 25px; outline: none; border-radius: 5px; }
 .slider::-webkit-slider-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; border-radius: 15px; }
 .slider::-moz-range-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; }
+
+#colorPicker, #MASTER-ColorPicker { display: inline-block; }
+
+#GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; }
+
+@media (max-width: 1850px){ 
+  #connecterror, #e1, #e2 { display: block !important; } 
+  .MASTER-CONNECT-WIDGET, .MASTER-GAME-WIDGET, .TEXT-Title { display: none !important; }
+}

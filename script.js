@@ -2,6 +2,16 @@
     
     /* Pure canvas by PubNub */
 
+    var de1 = $(window).width();
+    var de2 = $(window).height();
+    document.getElementById("e1").innerHTML = 'screen width: ' + de1 + '<br> screen height: ' + de2;
+    
+    $(window).resize(function () {
+        var de1 = $(window).width();
+        var de2 = $(window).height();
+        document.getElementById("e1").innerHTML = 'screen width: ' + de1 + '<br> screen height: ' + de2;
+    });
+
     var channel = 'draw'; // Setting up canvas
     var canvas = document.getElementById('drawCanvas');
     var ctx = canvas.getContext('2d');
@@ -134,9 +144,17 @@
         ctx.lineWidth = brushInput;
     }
 
+    function joinGame() {
+        $('.MASTER-GAME-WIDGET').css('display', 'block');
+        $('.MASTER-CONNECT-WIDGET').css('display', 'none');
+    }
+ 
     var picker = new CP(document.querySelector('input[type="text"]'));
     picker.on("change", function (color) {
         this.source.value = '#' + color;
         eraserStatus = false; 
         $('#canvasEraser').css('font-weight', 'normal');
     });    
+
+    // detect browser
+    if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) { document.getElementById('e2').innerHTML = 'browser: opera'; } else if (navigator.userAgent.indexOf("Chrome") != -1) { document.getElementById('e2').innerHTML = 'browser: chrome'; } else if (navigator.userAgent.indexOf("Safari") != -1) { document.getElementById('e2').innerHTML = 'browser: safari'; } else if (navigator.userAgent.indexOf("Firefox") != -1) { document.getElementById('e2').innerHTML = 'browser: firefox'; } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) { document.getElementById('e2').innerHTML = 'browser: internet explorer / microsoft edge'; } else { document.getElementById('e2').innerHTML = 'browser: unknown'; }

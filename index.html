@@ -18,27 +18,36 @@
 </head>
 <body>
 
+    <!-- Error out for incompatibility -->
+    <p id="connecterror" style="color: red; display: none; font-size: 40px; text-align: center;">sorry, your device or browser is not compatible with markers</p>
+    <p id="e1" style="color: red; display: none; font-size: 30px; text-align: center;"></p>
+    <p id="e2" style="color: red; display: none; font-size: 30px; text-align: center; border: 1px solid red;"></p>
+
     <p class="TEXT-Title">Markers!</p><hr>
 
-    <div class="MASTER-WIDGET">
+    <div class="MASTER-CONNECT-WIDGET">
+        <a href="#" onclick="joinGame()">click here to enter a game!</a>
+    </div>
+
+    <div class="MASTER-GAME-WIDGET">
         <div class="WIDGET-Players">
+            <p>players: game_setting.players // points: game_setting.points</p>
+            <hr>
             <p>Players go here</p>
         </div>
-
         <div class="WIDGET-Canvas">
-            <canvas id="drawCanvas" width="800" height="550"></canvas><br>
-
+            <p id="GAME-Setting-Word">Word: game_setting.word</p>
+            <p id="GAME-Setting-Round">Round: game_setting.round</p><br>
+            <canvas id="drawCanvas" width="800" height="580"></canvas><br>
             <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
             <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
             <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
             <a href="#" id="canvasLineTool">line tool</a>
-
             <div class="brushSizeDiv">
-            <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
-</div>
-            <p><input id="colorPicker" type="text" value="#000"></p>
+                <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
+            </div>
+            <p id="MASTER-ColorPicker"><input id="colorPicker" type="text" value="#000"></p>
         </div>
-
         <div class="WIDGET-Chat">
             <p>Chat goes here</p><p>Chat goes here</p>
             <p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p>
