@@ -135,6 +135,9 @@
         ctx.rect(0, 0, 1000, 1000);
         ctx.fillStyle = '#fcfcfc';
         ctx.fill();
+        $('#canvasEraser').css('font-weight', 'normal');
+        eraserStatus = false;
+        document.getElementById("colorPicker").value = (colorList.slice(-2)[0]);
     }
 
     function changeBrushSize() {

@@ -18,45 +18,68 @@
 </head>
 <body>
 
+    <canvas id="pixie"></canvas>
+  
     <!-- Error out for incompatibility -->
     <p id="connecterror" style="color: red; display: none; font-size: 40px; text-align: center;">sorry, your device or browser is not compatible with markers</p>
     <p id="e1" style="color: red; display: none; font-size: 30px; text-align: center;"></p>
     <p id="e2" style="color: red; display: none; font-size: 30px; text-align: center; border: 1px solid red;"></p>
 
-    <p class="TEXT-Title">Markers!</p><hr>
-
+    <p id="TEXT-Title">Markers!</p><br>
+    <p id="TEXT-Description">online pictionary</p>
+    <!--
     <div class="MASTER-CONNECT-WIDGET">
         <a href="#" onclick="joinGame()">click here to enter a game!</a>
     </div>
+    -->
 
     <div class="MASTER-GAME-WIDGET">
-        <div class="WIDGET-Players">
-            <p>players: game_setting.players // points: game_setting.points</p>
-            <hr>
+        <div class="WIDGET-Players rainbow-color">
+            <label class="SETTING-Button" id="SB1">
+                <i class="fas fa-door-open SETTING-Icon">&nbsp;</i>leave
+            </label>
+            <label class="SETTING-Button" id="SB2">
+                <i class="fas fa-dice SETTING-Icon">&nbsp;</i>make game
+            </label>
+            <p>Players: game_setting.playercount<br>Your Points: game_setting.points</p>
+            <hr style="background: #fff; padding: 0px">
             <p>Players go here</p>
         </div>
-        <div class="WIDGET-Canvas">
+        <div class="WIDGET-Canvas rainbow-color">
             <p id="GAME-Setting-Word">Word: game_setting.word</p>
-            <p id="GAME-Setting-Round">Round: game_setting.round</p><br>
-            <canvas id="drawCanvas" width="800" height="580"></canvas><br>
-            <a href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
-            <a href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
-            <a href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
-            <a href="#" id="canvasLineTool">line tool</a>
+            <p id="GAME-Setting-Round">Round: game_setting.round</p>
+            <canvas id="drawCanvas" class="rainbow-color-canvas" width="900" height="580"></canvas><br>
+            <a class="TOOL-Item" href="#" id="canvasEraser" onclick="runEraser()">eraser</a>
+            <a class="TOOL-Item" href="#" id="canvasBackground" onclick="runBackground()">fill background</a>
+            <a class="TOOL-Item" href="#" id="canvasReset" onclick="resetDrawing()">reset</a>
+            <a class="TOOL-Item" href="#" id="canvasLineTool">line tool</a>
             <div class="brushSizeDiv">
                 <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
             </div>
             <p id="MASTER-ColorPicker"><input id="colorPicker" type="text" value="#000"></p>
         </div>
-        <div class="WIDGET-Chat">
-            <p>Chat goes here</p><p>Chat goes here</p>
-            <p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p><p>Chat goes here</p>
+        <div class="WIDGET-Chat rainbow-color">
+            <p>Chat goes here</p>
             <input id="INPUT-Guess" type="text" placeholder="enter a guess">
         </div>
     </div>
+
+    <footer>
+        <hr style="width: 90%;" class="rainbow-color-HR">
+        <p class="MB-footer-text">made by henry jack &nbsp;//&nbsp;</p>
+        <p class="MB-footer-text">
+         &copy;<a class="MB-footer-link rainbow-color-footerlink" href="https://scono.co">scono,</a>2017-2018</p>
+        <br>
+        <p class="MB-footer-text">v1.1&nbsp;//
+            <a class="MB-footer-link rainbow-color-footerlink" href="https://github.com/onLava/Markers">markers on github</a>
+        </p>
+        <p class="MB-footer-text">//&nbsp; markers uses<a class="MB-footer-link rainbow-color-footerlink" href="https://github.com/tovic/color-picker">tovic's color picker</a></p>
+        <br>
+    </footer>
 
 </body>
 </html>
 
 <script src="cpm/color-picker.min.js"></script>
 <script src="script.js"></script>
+<script src="fireflies.js" type="text/javascript"></script>

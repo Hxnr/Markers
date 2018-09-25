@@ -1,29 +1,63 @@
-* { padding: 10px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+/* Markers
+ * Scono, Henry Jack, 2018
+ * All rights reserved
+*/
 
-canvas { border: 1px dotted silver; }
-#drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
-.TEXT-Title { text-align: center; font-size: 30px; margin: 0px; padding: 0px; }
+/* Page */
+* { padding: 10px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; font-family: 'Noto Sans', arial, sans-serif; }
+body { background-color: #141414; color: #fff; }
+html, body {margin: 0; height: 100%; overflow: hidden; }
+#pixie { top: 0; left: 0; max-height: 100%; position: absolute; z-index: -1; }
 
-#drawCanvas { background: #fcfcfc; border: 1px solid black; }
-#brushSizeDisplay { display: inline-block; }
+/* Text */
+#TEXT-Title { text-align: center; font-size: 32px; margin: -10px 0px -15px 0px; padding: 0px; font-family: 'Advent Pro', 'Noto Sans', arial, sans-serif; }
+#TEXT-Description { font-size: 11px; color: #afafaf; text-align: center; padding: 0px; margin: -10px 0px 2px 0px; font-style: italic; }
+#GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; padding: 0px 0px 5px 0px; margin: 0px; }
+
+/* Chat */
 #INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; }
 
-.WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; margin: 5px; }
-.WIDGET-Chat { width: 400px; position: relative;}
-.WIDGET-Canvas { margin: 0px 50px; }
-.WIDGET-Players { width: 400px; }
-.MASTER-GAME-WIDGET { text-align: center; position: relative; width: 100% !important; display: none; }
+/* Widgets */
+.WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; z-index: 999; margin: 0px 5px; }
+.WIDGET-Chat { width: 350px; position: relative; z-index: 999; }
+.WIDGET-Canvas { margin: 0px 50px;  z-index: 999; }
+.WIDGET-Players { width: 350px; z-index: 999; }
+.MASTER-GAME-WIDGET { text-align: center; position: relative; width: 100% !important; margin-bottom: 0px; padding-bottom: 0px; padding: 5px 5px 0px 5px; }
 
+/* Canvas */
+.TOOL-Item { color: #fff; }
+.TOOL-Item:hover { color: rgb(65, 134, 207); }
+#drawCanvas { border: 1px dotted silver; }
+#drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
+#drawCanvas { background: #fcfcfc; border: 1px solid black; display: block; padding: 0px; }
+#brushSizeDisplay { display: inline-block; }
+#colorPicker, #MASTER-ColorPicker { display: inline-block; }
+#colorPicker { width: 90px; }
 .brushSizeDiv { display: inline-block; }
 .slider { vertical-align: middle; margin: 5px; width: 100px; height: 25px; outline: none; border-radius: 5px; }
 .slider::-webkit-slider-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; border-radius: 15px; }
 .slider::-moz-range-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; }
 
-#colorPicker, #MASTER-ColorPicker { display: inline-block; }
+/* Settings */
+.SETTING-Icon { font-size: 16px; padding: 4px; }
+.SETTING-Button { border: 1px dashed #ccc; display: inline-block; padding: 4px 8px; cursor: pointer; border-radius: 8px; margin: 3px; }
 
-#GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; }
+/* Footer */
+#SB1 { border: 3px solid rgb(155, 11, 6); } #SB2 { border: 3px solid rgb(23, 95, 7); }
+footer { padding: 0px !important; margin: -10px 0px 0px 0px; text-align: center; }
+.MB-footer-text { display: inline-block; font-size: 15px; font-style: italic; padding: 0px; margin: 0px; }
 
+/* Disable bad screen sizes */
 @media (max-width: 1850px){ 
   #connecterror, #e1, #e2 { display: block !important; } 
   .MASTER-CONNECT-WIDGET, .MASTER-GAME-WIDGET, .TEXT-Title { display: none !important; }
 }
+
+/* Rainbow effect */
+@-webkit-keyframes rainbow{0%{border:2px solid #a50f0a}20%{border:2px solid #b75007}40%{border:2px solid #c1a503}60%{border:2px solid #1b7507}80%{border:2px solid #3068a5}100%{border:2px solid #5f1e8c}}
+.rainbow-color{-webkit-animation:rainbow 60s infinite alternate}
+@-webkit-keyframes rainbowcanvas{0%{border:3px solid #a50f0a}20%{border:3px solid #b75007}40%{border:3px solid #c1a503}60%{border:3px solid #1b7507}80%{border:3px solid #3068a5}100%{border:3px solid #5f1e8c}}
+.rainbow-color-canvas{-webkit-animation:rainbowcanvas 60s infinite alternate}
+@-webkit-keyframes rainbow-footerlink{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#5f1e8c}}
+.rainbow-color-footerlink{-webkit-animation:rainbow-footerlink 60s infinite alternate}
+
