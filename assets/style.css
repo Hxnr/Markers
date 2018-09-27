@@ -25,8 +25,8 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 .MASTER-GAME-WIDGET { text-align: center; position: relative; width: 100% !important; margin-bottom: 0px; padding-bottom: 0px; padding: 5px 5px 0px 5px; }
 
 /* Canvas */
-.TOOL-Item { color: #fff; }
-.TOOL-Item:hover { color: rgb(65, 134, 207); }
+.TOOL-Item { color: #fff; padding: 5px 2px 5px 5px; }
+.TOOL-Item:hover { color: #fff; }
 #drawCanvas { border: 1px dotted silver; }
 #drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
 #drawCanvas { background: #fcfcfc; border: 1px solid black; display: block; padding: 0px; }
@@ -37,6 +37,11 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 .slider { vertical-align: middle; margin: 5px; width: 100px; height: 25px; outline: none; border-radius: 5px; }
 .slider::-webkit-slider-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; border-radius: 15px; }
 .slider::-moz-range-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; }
+
+.TOOL-Icon { padding: 0px; }
+
+.TOOL-MasterItem { border: 1px solid white; margin-right: 20px; border-radius: 4px; }
+.TOOL-MasterItem:hover { cursor: pointer; border: 1px solid #4186cf; }
 
 /* Settings */
 .SETTING-Icon { font-size: 16px; padding: 4px; }

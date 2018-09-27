@@ -97,18 +97,18 @@
             color = '#fcfcfc';
             document.getElementById("colorPicker").value = '#fcfcfc';
             runColorCheck();
-            $('#canvasEraser').css('font-weight', 'bold');
+            $('.tmU1').css('border', '1px solid green');
             eraserStatus = true;
         } else {
-            $('#canvasEraser').css('font-weight', 'normal'); 
+            $('.tmU1').css('border', '1px solid white');
             eraserStatus = false; 
             document.getElementById("colorPicker").value = (colorList.slice(-2)[0]);
          }
     }
 
     function lineToolStatus(e) {
-        if (!lineStatus) { lineStatus = true; $('#canvasLineTool').css('font-weight', 'bold'); }
-        else if (lineStatus) { lineStatus = false; $('#canvasLineTool').css('font-weight', 'normal'); }
+        if (!lineStatus) { lineStatus = true; $('.tmU2').css('border', '1px solid green'); }
+        else if (lineStatus) { lineStatus = false; $('.tmU2').css('border', '1px solid white'); }
     }
 
     function runLineTool(e) {
