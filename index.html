@@ -53,9 +53,11 @@
             <label class="TOOL-MasterItem" onclick="runBackground()"><i class="fas fa-fill-drip TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasBackground">fill background</a></label>
             <label class="TOOL-MasterItem" onclick="resetDrawing()"><i class="fas fa-trash-alt TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasReset">reset</a></label>
             <label class="TOOL-MasterItem tmU2" id="canvasLineTool"><i class="fas fa-sliders-h TOOL-Icon"></i><a class="TOOL-Item" href="#">line tool</a></label>
+            
+            <label class="TOOL-MasterSize"><i class="fas fa-brush"></i>
             <div class="brushSizeDiv">
-                <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" class="slider" id="brushSizeInput">brush size: <p id="brushSizeDisplay"></p><br>
-            </div>
+                <input class="slider" onchange="changeBrushSize()" type="range" min="1" max="50" value="3" id="brushSizeInput">Size:<p id="brushSizeDisplay"></p><br>
+            </div></label>
             <p id="MASTER-ColorPicker"><input id="colorPicker" type="text" value="#000"></p>
         </div>
         <div class="WIDGET-Chat rainbow-color">

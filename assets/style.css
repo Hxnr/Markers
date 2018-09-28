@@ -33,15 +33,14 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #brushSizeDisplay { display: inline-block; }
 #colorPicker, #MASTER-ColorPicker { display: inline-block; }
 #colorPicker { width: 90px; }
-.brushSizeDiv { display: inline-block; }
-.slider { vertical-align: middle; margin: 5px; width: 100px; height: 25px; outline: none; border-radius: 5px; }
-.slider::-webkit-slider-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; border-radius: 15px; }
-.slider::-moz-range-thumb { width: 100px; height: 25px; background: #fff; cursor: pointer; }
-
+.brushSizeDiv { display: inline-block; margin: 0px; font-size: 15px; padding: 0px; }
+.slider { -webkit-appearance: none; width: 120px; height: 8px; border-radius: 30px; background: #d3d3d3; padding: 0px; outline: none; margin: 5px; margin-left: -5px; vertical-align: middle;  }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; cursor: pointer; }
+.slider::-moz-range-thumb { width: 25px; height: 25px; border-radius: 50%; background: #4CAF50; cursor: pointer; }
 .TOOL-Icon { padding: 0px; }
-
-.TOOL-MasterItem { border: 1px solid white; margin-right: 20px; border-radius: 4px; }
-.TOOL-MasterItem:hover { cursor: pointer; border: 1px solid #4186cf; }
+.TOOL-MasterSize { border: 1px solid white; padding: 1px 0px 1px 0px; height: 45px; border-radius: 4px; }
+.TOOL-MasterItem { border: 1px solid white; margin-right: 20px; border-radius: 4px; height: 45px; }
+.TOOL-MasterItem:hover, .TOOL-MasterSize:hover { cursor: pointer; border: 1px solid #4186cf; }
 
 /* Settings */
 .SETTING-Icon { font-size: 16px; padding: 4px; }
@@ -65,4 +64,6 @@ footer { padding: 0px !important; margin: -10px 0px 0px 0px; text-align: center;
 .rainbow-color-canvas{-webkit-animation:rainbowcanvas 60s infinite alternate}
 @-webkit-keyframes rainbow-footerlink{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#5f1e8c}}
 .rainbow-color-footerlink{-webkit-animation:rainbow-footerlink 60s infinite alternate}
+@-webkit-keyframes rainbow-sizeselector{0%{background:#a50f0a}20%{background:#b75007}40%{background:#c1a503}60%{background:#1b7507}80%{background:#3068a5}100%{background:#5f1e8c}}
+.slider {-webkit-animation:rainbow-sizeselector 60s infinite alternate}
 
