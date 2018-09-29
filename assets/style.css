@@ -15,7 +15,7 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; padding: 0px 0px 5px 0px; margin: 0px; }
 
 /* Chat */
-#INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; }
+#INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; height: 40px; }
 
 /* Widgets */
 .WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; z-index: 999; margin: 0px 5px; }
@@ -31,16 +31,18 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
 #drawCanvas { background: #fcfcfc; border: 1px solid black; display: block; padding: 0px; }
 #brushSizeDisplay { display: inline-block; }
-#colorPicker, #MASTER-ColorPicker { display: inline-block; }
-#colorPicker { width: 90px; }
+
 .brushSizeDiv { display: inline-block; margin: 0px; font-size: 15px; padding: 0px; }
-.slider { -webkit-appearance: none; width: 120px; height: 8px; border-radius: 30px; background: #d3d3d3; padding: 0px; outline: none; margin: 5px; margin-left: -5px; vertical-align: middle;  }
+.slider { -webkit-appearance: none; width: 110px; height: 8px; border-radius: 30px; background: #d3d3d3; padding: 0px; outline: none; margin: 5px; margin-left: -5px; vertical-align: middle;  }
 .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; cursor: pointer; }
 .slider::-moz-range-thumb { width: 25px; height: 25px; border-radius: 50%; background: #4CAF50; cursor: pointer; }
 .TOOL-Icon { padding: 0px; }
 .TOOL-MasterSize { border: 1px solid white; padding: 1px 0px 1px 0px; height: 45px; border-radius: 4px; }
 .TOOL-MasterItem { border: 1px solid white; margin-right: 20px; border-radius: 4px; height: 45px; }
 .TOOL-MasterItem:hover, .TOOL-MasterSize:hover { cursor: pointer; border: 1px solid #4186cf; }
+
+#colorPicker { width: 75px; height: 24px; padding: 2px; margin-left: 4px; border-radius: 5px; outline: none; border: 2px solid black; }
+
 
 /* Settings */
 .SETTING-Icon { font-size: 16px; padding: 4px; }

@@ -45,6 +45,9 @@
     lineID.addEventListener("click", lineToolStatus); // Enabling or disabling line tool
     canvas.addEventListener("click", runLineTool); // Running line tool if enabled
 
+
+
+
     function runColorCheck() { return color = document.getElementById("colorPicker").value; } // Get the color 
 
     function drawOnCanvas(color, plots) {
@@ -136,8 +139,13 @@
         ctx.fillStyle = '#fcfcfc';
         ctx.fill();
         $('#canvasEraser').css('font-weight', 'normal');
+        $('.tmU1').css('border', '1px solid white');   
         eraserStatus = false;
+        lineStatus = false; $('.tmU2').css('border', '1px solid white');
         document.getElementById("colorPicker").value = (colorList.slice(-2)[0]);
+        if (document.getElementById("colorPicker").value === 'undefined') { // in case the user hasnt had a past color
+            document.getElementById("colorPicker").value = '#000000';
+        }
     }
 
     function changeBrushSize() {
@@ -157,6 +165,15 @@
         this.source.value = '#' + color;
         eraserStatus = false; 
         $('#canvasEraser').css('font-weight', 'normal');
+        tempColor = '#' + color;
+        $('#colorPicker').css('background', tempColor); 
+        var r = parseInt(color.substr(0, 2), 16);
+        var g = parseInt(color.substr(2, 2), 16);
+        var b = parseInt(color.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        if (yiq >= 128) {
+            $('#colorPicker').css('color', 'black'); 
+        } else { $('#colorPicker').css('color', 'white'); }
     });    
 
     // detect browser
