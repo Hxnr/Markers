@@ -139,10 +139,9 @@
         $('.tmU1').css('border', '1px solid white');   
         eraserStatus = false;
         lineStatus = false; $('.tmU2').css('border', '1px solid white');
-        document.getElementById("colorPicker").value = (colorList.slice(-2)[0]);
-        if (document.getElementById("colorPicker").value === 'undefined') { // in case the user hasnt had a past color
-            document.getElementById("colorPicker").value = '#000000';
-        }
+        document.getElementById("colorPicker").value = '#000000';
+        $('#colorPicker').css('background', '#000000'); 
+        $('#colorPicker').css('color', '#ffffff'); 
     }
 
     function changeBrushSize() {
