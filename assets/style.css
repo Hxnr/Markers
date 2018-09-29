@@ -17,6 +17,14 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 /* Chat */
 #INPUT-Guess { bottom: 24px; width: 325px; max-width: 100%; position: absolute; left: 10px; height: 40px; }
 
+.PLAYER-Box { margin: 0px; padding: 5px; }
+
+.PLAYER-Name, .PLAYER-Points, .PLAYER-Color { display: inline-block; }
+.PLAYER-Color { width: 10px; height: 10px; background: #bc2f27; margin: 5px; vertical-align: middle; margin-left: 10px; border-radius: 15px; }
+
+#playercolor-red { background: #cc0000; } #playercolor-orange { background: #ff6600; } #playercolor-yellow { background: #ffff00; } #playercolor-green { background: #33cc33; } 
+#playercolor-white { background: #ffffff; } #playercolor-blue { background: #0066ff; } #playercolor-purple { background: #9900cc; } #playercolor-pink { background: #ff66ff; } 
+
 /* Widgets */
 .WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; z-index: 999; margin: 0px 5px; border-radius: 30px; }
 .WIDGET-Chat { width: 350px; position: relative; z-index: 999; }

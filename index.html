@@ -41,9 +41,16 @@
             <label class="SETTING-Button" id="SB2">
                 <i class="fas fa-dice SETTING-Icon">&nbsp;</i>make game
             </label>
-            <p>Players: game_setting.playercount<br>Your Points: game_setting.points</p>
-            <hr style="background: #fff; padding: 0px">
-            <p>Players go here</p>
+            <p>Players: game_setting.playercount<br>Your Points: game_setting.selfpoints</p>
+            <hr style="background: #fff; padding: 0px">   
+            <div class="PLAYER-Box">1st<a class="PLAYER-Color" id="playercolor-red"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">2nd<a class="PLAYER-Color" id="playercolor-green"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">3rd<a class="PLAYER-Color" id="playercolor-orange"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">4th<a class="PLAYER-Color" id="playercolor-yellow"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">5th<a class="PLAYER-Color" id="playercolor-pink"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">6th<a class="PLAYER-Color" id="playercolor-blue"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">7th<a class="PLAYER-Color" id="playercolor-purple"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">8th<a class="PLAYER-Color" id="playercolor-white"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div> 
         </div>
         <div class="WIDGET-Canvas rainbow-color">
             <p id="GAME-Setting-Word">Word: game_setting.word</p>
@@ -58,7 +65,6 @@
             <div class="brushSizeDiv">
                 <input class="slider" oninput="changeBrushSize()" type="range" min="1" max="50" value="3" id="brushSizeInput">Size:<p id="brushSizeDisplay"></p><br>
             </div></label>
-
         </div>
         <div class="WIDGET-Chat rainbow-color">
             <p>Chat goes here</p>
