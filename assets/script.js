@@ -45,9 +45,6 @@
     lineID.addEventListener("click", lineToolStatus); // Enabling or disabling line tool
     canvas.addEventListener("click", runLineTool); // Running line tool if enabled
 
-
-
-
     function runColorCheck() { return color = document.getElementById("colorPicker").value; } // Get the color 
 
     function drawOnCanvas(color, plots) {
@@ -159,7 +156,7 @@
         $('.MASTER-GAME-WIDGET').css('display', 'block');
         $('.MASTER-CONNECT-WIDGET').css('display', 'none');
     }
- 
+
     var picker = new CP(document.querySelector('input[type="text"]'));
     picker.on("change", function (color) {
         this.source.value = '#' + color;

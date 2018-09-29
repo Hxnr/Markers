@@ -15,10 +15,10 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; padding: 0px 0px 5px 0px; margin: 0px; }
 
 /* Chat */
-#INPUT-Guess { bottom: 10px; width: 95%; position: absolute; left: 10px; height: 40px; }
+#INPUT-Guess { bottom: 24px; width: 325px; max-width: 100%; position: absolute; left: 10px; height: 40px; }
 
 /* Widgets */
-.WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; z-index: 999; margin: 0px 5px; }
+.WIDGET-Canvas, .WIDGET-Chat, .WIDGET-Players { display: inline-block; border: 1px solid black; height: 750px; top: 0; vertical-align: middle; z-index: 999; margin: 0px 5px; border-radius: 30px; }
 .WIDGET-Chat { width: 350px; position: relative; z-index: 999; }
 .WIDGET-Canvas { margin: 0px 50px;  z-index: 999; }
 .WIDGET-Players { width: 350px; z-index: 999; }
@@ -42,7 +42,6 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 .TOOL-MasterItem:hover, .TOOL-MasterSize:hover { cursor: pointer; border: 1px solid #4186cf; }
 
 #colorPicker { width: 75px; height: 24px; padding: 2px; margin-left: 4px; border-radius: 5px; outline: none; border: 2px solid black; }
-
 
 /* Settings */
 .SETTING-Icon { font-size: 16px; padding: 4px; }
