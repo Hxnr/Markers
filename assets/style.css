@@ -15,13 +15,17 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; padding: 0px 0px 5px 0px; margin: 0px; }
 
 /* Chat */
-#INPUT-Guess { bottom: 24px; width: 325px; max-width: 100%; position: absolute; left: 10px; height: 40px; }
+#INPUT-Guess { bottom: 24px; width: 325px; max-width: 100%; position: absolute; left: 10px; height: 40px; background: #000; border-radius: 5px; border: 1px solid white; color: #fff; }
+#INPUT-Guess::placeholder { color: #fff; opacity: 1; } /* Chrome, Firefox, Opera, Safari 10.1+ */
+#INPUT-Guess:-ms-input-placeholder { color: #fff; } /* Internet Explorer 10-11 */
+#INPUT-Guess::-ms-input-placeholder { color: #fff; } /* Microsoft Edge */
+.CHAT-GameText { padding: 0px; color: #fff; font-weight: bold; }
+.CHAT-Player { padding: 0px; margin: -5px; }
 
+/*Players*/
 .PLAYER-Box { margin: 0px; padding: 5px; }
-
 .PLAYER-Name, .PLAYER-Points, .PLAYER-Color { display: inline-block; }
 .PLAYER-Color { width: 10px; height: 10px; background: #bc2f27; margin: 5px; vertical-align: middle; margin-left: 10px; border-radius: 15px; }
-
 #playercolor-red { background: #cc0000; } #playercolor-orange { background: #ff6600; } #playercolor-yellow { background: #ffff00; } #playercolor-green { background: #33cc33; } 
 #playercolor-white { background: #ffffff; } #playercolor-blue { background: #0066ff; } #playercolor-purple { background: #9900cc; } #playercolor-pink { background: #ff66ff; } 
 
@@ -39,7 +43,6 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #drawCanvas:hover, #drawCanvas:active { cursor: url(''), pointer; }
 #drawCanvas { background: #fcfcfc; border: 1px solid black; display: block; padding: 0px; }
 #brushSizeDisplay { display: inline-block; }
-
 .brushSizeDiv { display: inline-block; margin: 0px; font-size: 15px; padding: 0px; }
 .slider { -webkit-appearance: none; width: 110px; height: 8px; border-radius: 30px; background: #d3d3d3; padding: 0px; outline: none; margin: 5px; margin-left: -5px; vertical-align: middle;  }
 .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; cursor: pointer; }
@@ -48,7 +51,6 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 .TOOL-MasterSize { border: 1px solid white; padding: 1px 0px 1px 0px; height: 45px; border-radius: 4px; }
 .TOOL-MasterItem { border: 1px solid white; margin-right: 20px; border-radius: 4px; height: 45px; }
 .TOOL-MasterItem:hover, .TOOL-MasterSize:hover { cursor: pointer; border: 1px solid #4186cf; }
-
 #colorPicker { width: 75px; height: 24px; padding: 2px; margin-left: 4px; border-radius: 5px; outline: none; border: 2px solid black; }
 
 /* Settings */
@@ -71,8 +73,8 @@ footer { padding: 0px !important; margin: -10px 0px 0px 0px; text-align: center;
 .rainbow-color{-webkit-animation:rainbow 60s infinite alternate}
 @-webkit-keyframes rainbowcanvas{0%{border:3px solid #a50f0a}20%{border:3px solid #b75007}40%{border:3px solid #c1a503}60%{border:3px solid #1b7507}80%{border:3px solid #3068a5}100%{border:3px solid #8963a3}}
 .rainbow-color-canvas{-webkit-animation:rainbowcanvas 60s infinite alternate}
-@-webkit-keyframes rainbow-footerlink{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#8963a3}}
-.rainbow-color-footerlink{-webkit-animation:rainbow-footerlink 60s infinite alternate}
+@-webkit-keyframes rainbow-text{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#8963a3}}
+.rainbow-color-text{-webkit-animation:rainbow-text 60s infinite alternate}
 @-webkit-keyframes rainbow-sizeselector{0%{background:#a50f0a}20%{background:#b75007}40%{background:#c1a503}60%{background:#1b7507}80%{background:#3068a5}100%{background:#8963a3}}
 .slider {-webkit-animation:rainbow-sizeselector 60s infinite alternate}
 
