@@ -10,8 +10,8 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 #pixie { top: 0; left: 0; max-height: 100%; position: absolute; z-index: -1; }
 
 /* Text */
-#TEXT-Title { text-align: center; font-size: 32px; margin: -10px 0px -15px 0px; padding: 0px; font-family: 'Advent Pro', 'Noto Sans', arial, sans-serif; }
-#TEXT-Description { font-size: 11px; color: #afafaf; text-align: center; padding: 0px; margin: -10px 0px 2px 0px; font-style: italic; }
+#TEXT-Title { text-align: center; font-size: 32px; margin: -15px 0px -15px 0px; padding: 0px; font-family: 'Advent Pro', 'Noto Sans', arial, sans-serif; }
+#TEXT-Description { font-size: 11px; color: #afafaf; text-align: center; padding: 0px; margin: -10px 0px 5px 0px; font-style: italic; }
 #GAME-Setting-Word, #GAME-Setting-Round { display: inline-block; padding: 0px 0px 5px 0px; margin: 0px; }
 
 /* Chat */
@@ -59,12 +59,12 @@ footer { padding: 0px !important; margin: -10px 0px 0px 0px; text-align: center;
 }
 
 /* Rainbow effect */
-@-webkit-keyframes rainbow{0%{border:2px solid #a50f0a}20%{border:2px solid #b75007}40%{border:2px solid #c1a503}60%{border:2px solid #1b7507}80%{border:2px solid #3068a5}100%{border:2px solid #5f1e8c}}
+@-webkit-keyframes rainbow{0%{border:2px solid #a50f0a}20%{border:2px solid #b75007}40%{border:2px solid #c1a503}60%{border:2px solid #1b7507}80%{border:2px solid #3068a5}100%{border:2px solid #8963a3}}
 .rainbow-color{-webkit-animation:rainbow 60s infinite alternate}
-@-webkit-keyframes rainbowcanvas{0%{border:3px solid #a50f0a}20%{border:3px solid #b75007}40%{border:3px solid #c1a503}60%{border:3px solid #1b7507}80%{border:3px solid #3068a5}100%{border:3px solid #5f1e8c}}
+@-webkit-keyframes rainbowcanvas{0%{border:3px solid #a50f0a}20%{border:3px solid #b75007}40%{border:3px solid #c1a503}60%{border:3px solid #1b7507}80%{border:3px solid #3068a5}100%{border:3px solid #8963a3}}
 .rainbow-color-canvas{-webkit-animation:rainbowcanvas 60s infinite alternate}
-@-webkit-keyframes rainbow-footerlink{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#5f1e8c}}
+@-webkit-keyframes rainbow-footerlink{0%{color:#a50f0a}20%{color:#b75007}40%{color:#c1a503}60%{color:#1b7507}80%{color:#3068a5}100%{color:#8963a3}}
 .rainbow-color-footerlink{-webkit-animation:rainbow-footerlink 60s infinite alternate}
-@-webkit-keyframes rainbow-sizeselector{0%{background:#a50f0a}20%{background:#b75007}40%{background:#c1a503}60%{background:#1b7507}80%{background:#3068a5}100%{background:#5f1e8c}}
+@-webkit-keyframes rainbow-sizeselector{0%{background:#a50f0a}20%{background:#b75007}40%{background:#c1a503}60%{background:#1b7507}80%{background:#3068a5}100%{background:#8963a3}}
 .slider {-webkit-animation:rainbow-sizeselector 60s infinite alternate}
 
