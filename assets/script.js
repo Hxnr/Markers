@@ -2,13 +2,20 @@
 
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
-    document.getElementById("e1").innerHTML = 'screen width: ' + windowWidth + '<br> screen height: ' + windowHeight;
     
+    if (windowWidth < 1023) { $('.MARKERS').css('display', 'none'); $('#error').css('display', 'block'); }
+    if (windowWidth > 1024) { $('.MARKERS').css('display', 'block'); $('#error').css('display', 'none'); }
+
     $(window).resize(function () {
         var windowWidth = $(window).width();
         var windowHeight = $(window).height();
-        document.getElementById("e1").innerHTML = 'screen width: ' + windowWidth + '<br> screen height: ' + windowHeight;
+        $('#warning-resize').css('display', 'block');
+        setTimeout(resizeRemove, 2500);
+        if (windowWidth < 1023) { $('.MARKERS').css('display', 'none'); $('#error').css('display', 'block'); }
+        if (windowWidth > 1024) { $('.MARKERS').css('display', 'block'); $('#error').css('display', 'none'); }
     });
+
+    function resizeRemove() { $('#warning-resize').css('display', 'none'); }
 
     var canvas = document.getElementById('drawCanvas');
 

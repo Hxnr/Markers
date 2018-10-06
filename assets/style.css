@@ -9,6 +9,7 @@
 body { background-color: #141414; color: #fff; }
 html, body {margin: 0; height: 100%; overflow: hidden; }
 #pixie { top: 0; left: 0; max-height: 100%; position: absolute; z-index: -1; }
+.MARKERS { padding: 0px; }
 
 /* Text */
 #TEXT-Title { text-align: center; font-size: 32px; margin: -15px 0px -20px 0px; padding: 0px; font-family: 'Advent Pro', 'Noto Sans', arial, sans-serif; }
@@ -57,6 +58,8 @@ html, body {margin: 0; height: 100%; overflow: hidden; }
 .TOOL-MasterItem:hover, .TOOL-MasterSize:hover { cursor: pointer; border: 1px solid #4186cf; }
 #colorPicker { width: 75px; height: 24px; padding: 2px; margin-left: 4px; border-radius: 5px; outline: none; border: 2px solid black; }
 
+#warning-resize, #error { color: darkred; font-size: 40px; display: none; text-align: center; font-family: 'Advent Pro'; font-weight: bold; }
+
 /* Settings */
 .SETTING-Icon { font-size: 16px; padding: 4px; }
 .SETTING-Button { border: 1px dashed #ccc; display: inline-block; padding: 4px 8px; cursor: pointer; border-radius: 8px; margin: 3px; }
@@ -95,3 +98,4 @@ footer { padding: 0px !important; margin: -10px 0px 0px 0px; position: absolute;
 .rainbow-color-text{-webkit-animation:rainbow-text 60s infinite alternate}
 @-webkit-keyframes rainbow-sizeselector{0%{background:#a50f0a}20%{background:#b75007}40%{background:#c1a503}60%{background:#1b7507}80%{background:#3068a5}100%{background:#8963a3}}
 .slider {-webkit-animation:rainbow-sizeselector 60s infinite alternate}
+

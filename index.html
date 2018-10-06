@@ -16,82 +16,86 @@
     <link href="assets/style.css" rel="stylesheet">
     <link href="assets/cpm/color-picker.min.css" rel="stylesheet">
 </head>
-<body>
+<body background="assets/bk.png">
 
-    <canvas id="pixie"></canvas>
-  
     <!-- Error out for incompatibility -->
-    <p id="connecterror" style="color: red; display: none; font-size: 40px; text-align: center;">sorry, your device or browser is not compatible with markers</p>
-    <p id="e1" style="color: red; display: none; font-size: 30px; text-align: center;"></p>
-    <p id="e2" style="color: red; display: none; font-size: 30px; text-align: center; border: 1px solid red;"></p>
+    <p id="error">Sorry, your device or browser is not compatible with Markers.</p>
 
-    <p id="TEXT-Title">Markers!</p><br>
-    <p id="TEXT-Description">online pictionary</p>
-    
-    <!--
-    <div class="MASTER-CONNECT-WIDGET">
-        <a href="#" onclick="joinGame()">click here to enter a game!</a>
-    </div>
-    -->
-    <div class="MASTER-GAME-WIDGET">
-        <div class="WIDGET-Players rainbow-color">
-            <label class="SETTING-Button" id="SB1" onclick="leaveGame()">
-                <i class="fas fa-door-open SETTING-Icon">&nbsp;</i>leave
-            </label>
-            <label class="SETTING-Button" id="SB2">
-                <i class="fas fa-dice SETTING-Icon">&nbsp;</i>make game
-            </label>
-            <p class="GAMEINFO">Players: x<br>Your Points: y</p>
-            <hr style="background: #fff; padding: 0px">   
-            <div class="PLAYER-Box">1st<i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
-            <div class="PLAYER-Box">2nd<i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
-            <div class="PLAYER-Box">3rd<i class="fas fa-circle PLAYER-Color" id="playercolor-orange"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
-            <div class="PLAYER-Box">4th<i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
-       <!--     <div class="PLAYER-Box">5th<a class="PLAYER-Color" id="playercolor-pink"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">6th<a class="PLAYER-Color" id="playercolor-blue"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">7th<a class="PLAYER-Color" id="playercolor-purple"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">8th<a class="PLAYER-Color" id="playercolor-white"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div> -->
+    <div class="MARKERS">
+
+        <canvas id="pixie"></canvas>
+
+        <p id="TEXT-Title">Markers!</p><br>
+        <p id="TEXT-Description">online pictionary</p>
+
+        <p id="warning-resize">Warning: Resizing the browser window is NOT recommended!</p>
+        
+        <!--
+        <div class="MASTER-CONNECT-WIDGET">
+            <a href="#" onclick="joinGame()">click here to enter a game!</a>
         </div>
-        <div id="WIDGET-Canvas" class="rainbow-color">
-            <p id="GAME-Setting-Word">Word: game_setting.word</p>
-            <p id="GAME-Setting-Round">Round: game_setting.round</p>
-            <canvas id="drawCanvas" class="rainbow-color-canvas" width="890" height="550"></canvas><br>
-            <div class="MASTER-Tools">
-                <label class="TOOL-MasterItem tmU1" onclick="runEraser()"><i class="fas fa-eraser TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasEraser">eraser</a></label>
-                <label class="TOOL-MasterItem" onclick="runBackground()"><i class="fas fa-fill-drip TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasBackground">fill background</a></label>
-                <label class="TOOL-MasterItem" onclick="resetDrawing()"><i class="fas fa-trash-alt TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasReset">reset</a></label>
-                <label class="TOOL-MasterItem tmU2" id="canvasLineTool"><i class="fas fa-sliders-h TOOL-Icon"></i><a class="TOOL-Item" href="#">line tool</a></label>            
-                <label class="TOOL-MasterItem"><i class="fas fa-palette TOOL-Icon"></i><input id="colorPicker" type="text" value="#000"></label>
-                <label class="TOOL-MasterSize"><i class="fas fa-brush"></i>
-                <div class="brushSizeDiv">
-                    <input class="slider" oninput="changeBrushSize()" type="range" min="1" max="50" value="3" id="brushSizeInput">Size:<p id="brushSizeDisplay"></p><br>
-                </div></label>
+        -->
+        <div class="MASTER-GAME-WIDGET">
+            <div class="WIDGET-Players rainbow-color">
+                <label class="SETTING-Button" id="SB1" onclick="leaveGame()">
+                    <i class="fas fa-door-open SETTING-Icon">&nbsp;</i>leave
+                </label>
+                <label class="SETTING-Button" id="SB2">
+                    <i class="fas fa-dice SETTING-Icon">&nbsp;</i>make game
+                </label>
+                <p class="GAMEINFO">Players: x<br>Your Points: y</p>
+                <hr style="background: #fff; padding: 0px">   
+                <div class="PLAYER-Box">1st<i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+                <div class="PLAYER-Box">2nd<i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+                <div class="PLAYER-Box">3rd<i class="fas fa-circle PLAYER-Color" id="playercolor-orange"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+                <div class="PLAYER-Box">4th<i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+        <!--     <div class="PLAYER-Box">5th<a class="PLAYER-Color" id="playercolor-pink"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+                <div class="PLAYER-Box">6th<a class="PLAYER-Color" id="playercolor-blue"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+                <div class="PLAYER-Box">7th<a class="PLAYER-Color" id="playercolor-purple"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+                <div class="PLAYER-Box">8th<a class="PLAYER-Color" id="playercolor-white"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div> -->
+            </div>
+            <div id="WIDGET-Canvas" class="rainbow-color">
+                <p id="GAME-Setting-Word">Word: game_setting.word</p>
+                <p id="GAME-Setting-Round">Round: game_setting.round</p>
+                <canvas id="drawCanvas" class="rainbow-color-canvas" width="890" height="550"></canvas><br>
+                <div class="MASTER-Tools">
+                    <label class="TOOL-MasterItem tmU1" onclick="runEraser()"><i class="fas fa-eraser TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasEraser">eraser</a></label>
+                    <label class="TOOL-MasterItem" onclick="runBackground()"><i class="fas fa-fill-drip TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasBackground">fill background</a></label>
+                    <label class="TOOL-MasterItem" onclick="resetDrawing()"><i class="fas fa-trash-alt TOOL-Icon"></i><a class="TOOL-Item" href="#" id="canvasReset">reset</a></label>
+                    <label class="TOOL-MasterItem tmU2" id="canvasLineTool"><i class="fas fa-sliders-h TOOL-Icon"></i><a class="TOOL-Item" href="#">line tool</a></label>            
+                    <label class="TOOL-MasterItem"><i class="fas fa-palette TOOL-Icon"></i><input id="colorPicker" type="text" value="#000"></label>
+                    <label class="TOOL-MasterSize"><i class="fas fa-brush"></i>
+                    <div class="brushSizeDiv">
+                        <input class="slider" oninput="changeBrushSize()" type="range" min="1" max="50" value="3" id="brushSizeInput">Size:<p id="brushSizeDisplay"></p><br>
+                    </div></label>
+                </div>
+            </div>
+            <div class="WIDGET-Chat rainbow-color">
+                <p class="CHAT-GameText rainbow-color-text">Round 1.</p>
+                <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
+                <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i><p class="PLAYER-Name">playername:</p> message</div>
+                <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername:</p> message</div>
+                <p class="CHAT-GameText rainbow-color-text">Round 2.</p>
+                <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
+                <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername:</p> message</div>
+                <input id="INPUT-Guess" type="text" placeholder="enter a guess">
             </div>
         </div>
-        <div class="WIDGET-Chat rainbow-color">
-            <p class="CHAT-GameText rainbow-color-text">Round 1.</p>
-            <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i><p class="PLAYER-Name">playername:</p> message</div>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername:</p> message</div>
-            <p class="CHAT-GameText rainbow-color-text">Round 2.</p>
-            <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername:</p> message</div>
-            <input id="INPUT-Guess" type="text" placeholder="enter a guess">
-        </div>
-    </div>
 
-    <footer>
-        <hr style="width: 90%;" class="rainbow-color-HR">
-        <p class="MB-footer-text">made by henry jack &nbsp;//&nbsp;</p>
-        <p class="MB-footer-text">
-         &copy;<a class="MB-footer-link rainbow-color-text" href="https://scono.co">scono,</a>2017-2018</p>
-        <br>
-        <p class="MB-footer-text">v1.1&nbsp;//
-            <a class="MB-footer-link rainbow-color-text" href="https://github.com/onLava/Markers">markers on github</a>
-        </p>
-        <p class="MB-footer-text">//&nbsp; markers uses<a class="MB-footer-link rainbow-color-text" href="https://github.com/tovic/color-picker">tovic's color picker</a></p>
-        <br>
-    </footer>
+        <footer>
+            <hr style="width: 90%;" class="rainbow-color-HR">
+            <p class="MB-footer-text">made by henry jack &nbsp;//&nbsp;</p>
+            <p class="MB-footer-text">
+            &copy;<a class="MB-footer-link rainbow-color-text" href="https://scono.co">scono,</a>2017-2018</p>
+            <br>
+            <p class="MB-footer-text">v1.1&nbsp;//
+                <a class="MB-footer-link rainbow-color-text" href="https://github.com/onLava/Markers">markers on github</a>
+            </p>
+            <p class="MB-footer-text">//&nbsp; markers uses<a class="MB-footer-link rainbow-color-text" href="https://github.com/tovic/color-picker">tovic's color picker</a></p>
+            <br>
+        </footer>
+
+</div>
 
 </body>
 </html>
