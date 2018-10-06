@@ -1,19 +1,26 @@
     console.log("Markers!")
-    
-    /* Pure canvas by PubNub */
 
-    var de1 = $(window).width();
-    var de2 = $(window).height();
-    document.getElementById("e1").innerHTML = 'screen width: ' + de1 + '<br> screen height: ' + de2;
+    var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+    document.getElementById("e1").innerHTML = 'screen width: ' + windowWidth + '<br> screen height: ' + windowHeight;
     
     $(window).resize(function () {
-        var de1 = $(window).width();
-        var de2 = $(window).height();
-        document.getElementById("e1").innerHTML = 'screen width: ' + de1 + '<br> screen height: ' + de2;
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        document.getElementById("e1").innerHTML = 'screen width: ' + windowWidth + '<br> screen height: ' + windowHeight;
     });
 
-    var channel = 'draw'; // Setting up canvas
     var canvas = document.getElementById('drawCanvas');
+
+    var preWidth = $('#drawCanvas').width();
+    var preHeight = $('#drawCanvas').height();
+    document.getElementById("drawCanvas").setAttribute("width", preWidth);
+    document.getElementById("drawCanvas").setAttribute("height", preHeight-100);
+
+    $('.WIDGET-Players').css('height', windowHeight-150);
+    $('.WIDGET-Chat').css('height', windowHeight-150);
+    $('#WIDGET-Canvas').css('height', windowHeight-150);
+
     var ctx = canvas.getContext('2d');
 
     var lineID = document.getElementById("canvasLineTool"); // Line tool
@@ -54,7 +61,7 @@
         ctx.stroke();
     }
 
-    function setSinglePixel(e) {      
+    function setSinglePixel(e) {            
         if (mouseDown) {
             if (!lineStatus) {    
                 runColorCheck();       
@@ -154,6 +161,11 @@
     function joinGame() {
         $('.MASTER-GAME-WIDGET').css('display', 'block');
         $('.MASTER-CONNECT-WIDGET').css('display', 'none');
+    }
+
+    function leaveGame() {
+        $('.MASTER-GAME-WIDGET').css('display', 'none');
+        $('.MASTER-CONNECT-WIDGET').css('display', 'block');
     }
 
     var picker = new CP(document.querySelector('input[type="text"]'));
