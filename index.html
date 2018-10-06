@@ -33,7 +33,6 @@
         <a href="#" onclick="joinGame()">click here to enter a game!</a>
     </div>
     -->
-    <div class="container-fluid">
     <div class="MASTER-GAME-WIDGET">
         <div class="WIDGET-Players rainbow-color">
             <label class="SETTING-Button" id="SB1" onclick="leaveGame()">
@@ -42,12 +41,12 @@
             <label class="SETTING-Button" id="SB2">
                 <i class="fas fa-dice SETTING-Icon">&nbsp;</i>make game
             </label>
-            <p class="GAMEINFO">Players: setting.playercount<br>Your Points: setting.selfpoints</p>
+            <p class="GAMEINFO">Players: x<br>Your Points: y</p>
             <hr style="background: #fff; padding: 0px">   
-            <div class="PLAYER-Box">1st<i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">2nd<i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">3rd<i class="fas fa-circle PLAYER-Color" id="playercolor-orange"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
-            <div class="PLAYER-Box">4th<i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
+            <div class="PLAYER-Box">1st<i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+            <div class="PLAYER-Box">2nd<i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+            <div class="PLAYER-Box">3rd<i class="fas fa-circle PLAYER-Color" id="playercolor-orange"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
+            <div class="PLAYER-Box">4th<i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">points</p></div>
        <!--     <div class="PLAYER-Box">5th<a class="PLAYER-Color" id="playercolor-pink"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
             <div class="PLAYER-Box">6th<a class="PLAYER-Color" id="playercolor-blue"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
             <div class="PLAYER-Box">7th<a class="PLAYER-Color" id="playercolor-purple"></a><p class="PLAYER-Name">playername</p>/<p class="PLAYER-Points">playerpoints</p></div>
@@ -72,16 +71,15 @@
         <div class="WIDGET-Chat rainbow-color">
             <p class="CHAT-GameText rainbow-color-text">Round 1.</p>
             <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i><p class="PLAYER-Name">playername:</p> chat.message</div>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername:</p> chat.message</div>
+            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-red"></i><p class="PLAYER-Name">playername:</p> message</div>
+            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-yellow"></i><p class="PLAYER-Name">playername:</p> message</div>
             <p class="CHAT-GameText rainbow-color-text">Round 2.</p>
             <p class="CHAT-GameText rainbow-color-text">It's player.playername's turn to draw</p>
-            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername:</p> chat.message</div>
+            <div class="CHAT-Player"><i class="fas fa-circle PLAYER-Color" id="playercolor-green"></i><p class="PLAYER-Name">playername:</p> message</div>
             <input id="INPUT-Guess" type="text" placeholder="enter a guess">
         </div>
     </div>
 
-    <!--
     <footer>
         <hr style="width: 90%;" class="rainbow-color-HR">
         <p class="MB-footer-text">made by henry jack &nbsp;//&nbsp;</p>
@@ -94,8 +92,6 @@
         <p class="MB-footer-text">//&nbsp; markers uses<a class="MB-footer-link rainbow-color-text" href="https://github.com/tovic/color-picker">tovic's color picker</a></p>
         <br>
     </footer>
--->
-    </div>
 
 </body>
 </html>

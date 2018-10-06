@@ -12,20 +12,26 @@
 
     var canvas = document.getElementById('drawCanvas');
 
+    /*Responsive*/
+    $('.WIDGET-Players').css('height', windowHeight - 175);
+    $('.WIDGET-Chat').css('height', windowHeight - 175);
+    $('#WIDGET-Canvas').css('height', windowHeight - 175);
+
     var preWidth = $('#drawCanvas').width();
     var preHeight = $('#drawCanvas').height();
-    document.getElementById("drawCanvas").setAttribute("width", preWidth);
-    document.getElementById("drawCanvas").setAttribute("height", preHeight-100);
+    var widgetHeight = $('#WIDGET-Canvas').height();
+    var smallerWidget; 
 
-    $('.WIDGET-Players').css('height', windowHeight-150);
-    $('.WIDGET-Chat').css('height', windowHeight-150);
-    $('#WIDGET-Canvas').css('height', windowHeight-150);
+    if (windowHeight < 800) { smallerWidget = widgetHeight * 0.3; } // Small height displays
+    else { smallerWidget = widgetHeight * 0.23; } // Medium height displays
+    if (windowWidth > 1850 && windowHeight > 880) { smallerWidget = widgetHeight * 0.21; } // Large height displays
+    canvas.setAttribute("width", preWidth);
+    canvas.setAttribute("height", widgetHeight - smallerWidget);
+    if (windowWidth < 1130) { canvas.setAttribute("height", widgetHeight - 200); }
 
     var ctx = canvas.getContext('2d');
-
     var lineID = document.getElementById("canvasLineTool"); // Line tool
     var lineStatus = false;
-
     var eraserStatus = false;
 
     // Default values
@@ -106,6 +112,8 @@
             runColorCheck();
             $('.tmU1').css('border', '1px solid green');
             eraserStatus = true;
+            lineStatus = false; $('.tmU2').css('border', '1px solid white');
+
         } else {
             $('.tmU1').css('border', '1px solid white');
             eraserStatus = false; 
@@ -172,6 +180,7 @@
     picker.on("change", function (color) {
         this.source.value = '#' + color;
         eraserStatus = false; 
+        $('.tmU1').css('border', '1px solid white');
         $('#canvasEraser').css('font-weight', 'normal');
         tempColor = '#' + color;
         $('#colorPicker').css('background', tempColor); 
